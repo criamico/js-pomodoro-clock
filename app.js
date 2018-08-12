@@ -41,7 +41,7 @@
   }
 
   window.onload = function() {
-    var tag = document.getElementById("time"),
+    var tag = document.getElementById("time-left"),
       duration = "25:00";
 
     tag.textContent = duration;
@@ -68,9 +68,10 @@
         Min = Number(tag.textContent.split(":")[0]);
         Sec = Number(tag.textContent.split(":")[1]);
 
-        if (flag === "plus" && Min < 60) {
+        if (flag === "break-increment" && Min < 60) {
           Min += 5;
-        } else if (flag === "minus" && Min > 0) {
+        }
+        if (flag === "break-decrement" && Min > 0) {
           Min -= 5;
         }
         Sec < 10 ? (newSec = "0" + String(Sec)) : (newSec = String(Sec));
@@ -81,11 +82,11 @@
       }
     }
 
-    document.getElementById("plus").onclick = function() {
-      incrDecr("plus");
+    document.getElementById("break-increment").onclick = function() {
+      incrDecr("break-increment");
     };
-    document.getElementById("minus").onclick = function() {
-      incrDecr("minus");
+    document.getElementById("break-decrement").onclick = function() {
+      incrDecr("break-decrement");
     };
 
     // http://www.freesfx.co.uk/rx2/mp3s/5/16902_1461333025.mp3

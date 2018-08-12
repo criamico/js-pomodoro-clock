@@ -18,23 +18,25 @@
     <div class="clock">
       <div class="pomodoro">
         <div id="leaf"></div>
-        <p id="time"></p>
+        <p id="time-left"></p>
         <p id="session">session</p>
         <audio src="http://www.freesfx.co.uk/rx2/mp3s/5/16902_1461333025.mp3" type="audio/wav">  </audio>
       </div>
     </div>
-    <h2>Manage your session: </h2>
+    <h2>Manage your session</h2>
     <button type="button" title="start session" id="start"><i class="fa fa-play" aria-hidden="true"></i></button>
     <button type="button" title="stop session" id="stop"><i class="fa fa-pause" aria-hidden="true"></i></button>
     <button type="button" title="reset session" id="reset"><i class="fa fa-stop" aria-hidden="true"></i></button>
     <div class="add-minutes">
-      <button type="button" title="add minutes" id="minus">-</button>
-      <span >5:00</span>
-      <button  type="button" title="subtract minutes" id="plus">+</button>
+      <h3 id="break-label">Session length</h3>
+      <button type="button" title="add minutes" id="break-decrement">-</button>
+      <span id="break-length">5:00</span>
+      <button type="button" title="subtract minutes" id="break-increment">+</button>
     </div>
     <p class="author"><strong>Created by <a href="https://criamico.github.io/">criamico</a> - 2016</strong></p>
   </div>
 
   <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
 </body>
 </html>

@@ -1,0 +1,101 @@
+body {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  background-color: #fffffd;
+  color: #403d3d;
+}
+
+p {
+  font-size: 1em;
+}
+
+h2 {
+  margin: 5% 0 2% 0;
+}
+
+a {
+  text-decoration: none;
+  color: #ff5722;
+}
+
+.clock {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pomodoro {
+  position: relative;
+  width: 250px;
+  height: 240px;
+  border-radius: 100%;
+  background-color: red;
+  background: linear-gradient(0deg, #760101, #ff0000, #ff6b6b);
+  box-shadow: 5px 6px 17px 0px #555050;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#time {
+  font-size: 5em;
+  line-height: 250px;
+  color: #ffffff;
+  z-index: 10;
+}
+
+#session {
+  position: absolute;
+  top: 63%;
+  color: #ffffff;
+  left: 0;
+  right: 0;
+  font-size: 1.2em;
+}
+
+#leaf {
+  background: #037e08;
+  background: radial-gradient(circle, #21cc21, #014004);
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 32%;
+  text-align: center;
+  -webkit-transform: rotate(20deg);
+  -moz-transform: rotate(20deg);
+  -ms-transform: rotate(20deg);
+  -o-transform: rotate(20deg);
+}
+
+#leaf:before {
+  content: "";
+  position: absolute;
+  background: #037e08;
+  background: radial-gradient(circle, #21cc21, #014004);
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 70px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+}
+
+button {
+  border: none;
+  font-size: 1.8em;
+  padding: 0.5em 0.7em;
+  margin: 10px 5px;
+  background: #8bc34a;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.add-minutes span {
+  font-size: 2em;
+}
+.add-minutes button {
+  font-size: 1.2em;
+}
+
+/*# sourceMappingURL=style.css.map */
