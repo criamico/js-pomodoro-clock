@@ -1,0 +1,105 @@
+$bg-color-main: #fffffd;
+$bg-color-text-clock: #ffffff;
+$bg-dark-color-font: #403d3d;
+$bg-color-clock: red;
+$bg-color-clock-gradient: linear-gradient(0deg, #760101, #ff0000, #ff6b6b);
+$bg-leaf-color: #037e08;
+$bg-leaf-color-gradient: radial-gradient(circle, #21cc21, #014004);
+$bg-buttons-color: #8bc34a;
+
+@mixin transform($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+}
+
+body {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  background-color: $bg-color-main;
+  color: $bg-dark-color-font;
+}
+p {
+  font-size: 1em;
+}
+h2 {
+  margin: 5% 0 2% 0;
+}
+
+a {
+  text-decoration: none;
+  color: #ff5722;
+}
+.clock {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.pomodoro {
+  position: relative;
+  width: 250px;
+  height: 240px;
+  border-radius: 100%;
+  background-color: $bg-color-clock;
+  background: $bg-color-clock-gradient;
+  box-shadow: 5px 6px 17px 0px rgb(85, 80, 80);
+  text-align: center;
+  margin: 0 auto;
+}
+#time {
+  font-size: 5em;
+  line-height: 250px;
+  color: $bg-color-text-clock;
+  z-index: 10;
+}
+#session {
+  position: absolute;
+  top: 63%;
+  color: $bg-color-text-clock;
+  left: 0;
+  right: 0;
+  font-size: 1.2em;
+}
+
+#leaf {
+  background: $bg-leaf-color;
+  background: $bg-leaf-color-gradient;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 32%;
+  text-align: center;
+  @include transform(20deg);
+}
+#leaf:before {
+  content: "";
+  position: absolute;
+  background: $bg-leaf-color;
+  background: $bg-leaf-color-gradient;
+  top: 0;
+  left: 0;
+  height: 70px;
+  width: 70px;
+  @include transform(135deg);
+}
+
+button {
+  border: none;
+  font-size: 1.8em;
+  padding: 0.5em 0.7em;
+  margin: 10px 5px;
+  background: $bg-buttons-color;
+  color: $bg-color-text-clock;
+  border-radius: 5px;
+}
+
+.add-minutes {
+  span {
+    font-size: 2em;
+  }
+  button {
+    font-size: 1.2em;
+  }
+}
