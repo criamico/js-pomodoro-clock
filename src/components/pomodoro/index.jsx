@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './index.scss';
+import Lib from '../../library.js';
 
 class Pomodoro extends React.Component {
   constructor(props) {
@@ -9,6 +10,7 @@ class Pomodoro extends React.Component {
   }
 
   render() {
+    const elapsedTime = Lib.secondsToString(this.props.duration);
     return (
       <div className="clock">
         <div className="pomodoro">
@@ -17,7 +19,7 @@ class Pomodoro extends React.Component {
             className="counter"
             id="time-left"
           >
-            {this.props.duration}
+            {elapsedTime}
           </p>
           <p
             className="label"

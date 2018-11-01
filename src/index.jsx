@@ -20,8 +20,16 @@ class App extends React.Component {
     this.timerId = 0;
   }
   countDown = () => {
-    const elapsed = this.state.duration - 1;
-    this.setState({duration: elapsed});
+    if (this.state.duration > 0) {
+      const elapsed = this.state.duration - 1;
+      this.setState({duration: elapsed});
+    } else {
+      this.onStop();
+    }
+  }
+  onStop = () => {
+    this.setState({isRunning: false});
+    clearInterval(this.timerId);
   }
   onStartStop = () => {
     this.setState({isRunning: !this.state.isRunning});
@@ -29,8 +37,7 @@ class App extends React.Component {
       this.timerId = setInterval(this.countDown, 1000);
     }
     if (this.state.isRunning || this.state.duration === 0) {
-      this.setState({isRunning: false});
-      clearInterval(this.timerId);
+      this.onStop();
     }
   }
   onReset = () => {
@@ -47,7 +54,7 @@ class App extends React.Component {
   }
   onSessionDecrement = () => {
     const newLength = this.state.sessionLength - 1;
-    const sessionLength = newLength >= 0 ? newLength : 1;
+    const sessionLength = newLength > 0 ? newLength : 1;
     this.setState({
       sessionLength,
       duration: Lib.minutesToSeconds(sessionLength)
@@ -60,7 +67,7 @@ class App extends React.Component {
   }
   onBreakDecrement = () => {
     const newLength = this.state.breakLength - 1;
-    const breakLength = newLength >= 0 ? newLength : 1;
+    const breakLength = newLength > 0 ? newLength : 1;
     this.setState({breakLength});
   }
 
