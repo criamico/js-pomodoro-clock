@@ -1,0 +1,35 @@
+$bg-color-main: #fffffd;
+$bg-color-text-clock: #ffffff;
+$bg-dark-color-font: #403d3d;
+$bg-buttons-color: #8bc34a;
+
+body {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  background-color: $bg-color-main;
+  color: $bg-dark-color-font;
+}
+
+p {
+  font-size: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: #ff5722;
+}
+
+button {
+  border: none;
+  font-size: 1.5em;
+  padding: 0.5em 0.7em;
+  margin: 10px 5px;
+  background: $bg-buttons-color;
+  color: $bg-color-text-clock;
+  border-radius: 5px;
+}
+
+.session-controls {
+  display: flex;
+  justify-content: center;
+}

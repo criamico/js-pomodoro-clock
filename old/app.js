@@ -1,14 +1,14 @@
 "use strict";
 
 (function() {
-  var timeoutID,
-    isRunning = false; //flag that says if the timer is running or not
+  var timeoutID;
+  var isRunning = false; //flag that says if the timer is running or not
 
   function countDown(target) {
-    var elapsed,
-      newTime,
-      time = new Date(),
-      audio = document.getElementsByTagName("audio")[0];
+    var elapsed;
+    var newTime;
+    var time = new Date();
+    var audio = document.getElementsByTagName("audio")[0];
 
     // calculate the time elapsed
     time.setMinutes(target.textContent.split(":")[0]);
@@ -41,8 +41,8 @@
   }
 
   window.onload = function() {
-    var tag = document.getElementById("time-left"),
-      duration = "25:00";
+    var tag = document.getElementById("time-left");
+    var duration = "25:00";
 
     tag.textContent = duration;
 
@@ -51,11 +51,13 @@
       if (tag.textContent === "00:00") tag.textContent = duration;
       countDown(tag);
     };
+
     // reset the session
     document.getElementById("reset").onclick = function reset() {
       tag.textContent = duration;
       stopCountDown();
     };
+
     // stop the session (doesn't reset the counter)
     document.getElementById("stop").onclick = function stop() {
       stopCountDown();

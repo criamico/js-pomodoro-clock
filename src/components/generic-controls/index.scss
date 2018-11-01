@@ -1,0 +1,22 @@
+.controls {
+  padding: 0 5px;
+
+  .controls-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      font-size: 2em;
+    }
+
+    button {
+      width: 40px;
+      font-size: 1.2em;
+    }
+
+    .controls-duration {
+      padding: 0 5px;
+    }
+  }
+}

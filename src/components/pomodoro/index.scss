@@ -1,0 +1,71 @@
+$bg-color-clock: red;
+$bg-color-clock-gradient: linear-gradient(0deg, #760101, #ff0000, #ff6b6b);
+$bg-leaf-color: #037e08;
+$bg-leaf-color-gradient: radial-gradient(circle, #21cc21, #014004);
+$bg-color-text-clock: #ffffff;
+
+@mixin transform($degrees) {
+  -webkit-transform: rotate($degrees);
+  -moz-transform: rotate($degrees);
+  -ms-transform: rotate($degrees);
+  -o-transform: rotate($degrees);
+}
+
+.clock {
+  text-align: center;
+  margin: 0 auto;
+
+  .pomodoro {
+    position: relative;
+    width: 250px;
+    height: 240px;
+    border-radius: 100%;
+    background-color: $bg-color-clock;
+    background: $bg-color-clock-gradient;
+    box-shadow: 5px 6px 17px 0px rgb(85, 80, 80);
+    text-align: center;
+    margin: 0 auto;
+
+
+    #leaf {
+      background: $bg-leaf-color;
+      background: $bg-leaf-color-gradient;
+      width: 70px;
+      height: 70px;
+      position: absolute;
+      top: 0;
+      left: 32%;
+      text-align: center;
+      @include transform(20deg);
+    }
+
+    #leaf:before {
+      content: "";
+      position: absolute;
+      background: $bg-leaf-color;
+      background: $bg-leaf-color-gradient;
+      top: 0;
+      left: 0;
+      height: 70px;
+      width: 70px;
+      @include transform(135deg);
+    }
+
+    .label {
+      position: absolute;
+      top: 63%;
+      color: $bg-color-text-clock;
+      left: 0;
+      right: 0;
+      font-size: 1.2em;
+    }
+
+    .counter {
+      font-size: 5em;
+      line-height: 250px;
+      color: $bg-color-text-clock;
+      z-index: 10;
+    }
+  }
+
+}
