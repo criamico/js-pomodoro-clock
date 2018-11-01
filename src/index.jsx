@@ -3,12 +3,13 @@ import styles from './main.scss';
 import Pomodoro from './components/pomodoro/index.jsx';
 import MainControls from './components/main-controls.jsx';
 import Attribution from './components/attribution.jsx';
-// import 'font-awesome/scss/font-awesome.scss';
+import Lib from './library.js';
 
 const defaultState = {
   isRunning: false,
   breakLength: 5,
-  sessionLength: 25
+  sessionLength: 25,
+  duration: 1500 // duration is directly in seconds,
 };
 
 class App extends React.Component {
@@ -16,23 +17,41 @@ class App extends React.Component {
     super(props);
     App.displayName = 'App';
     this.state = defaultState;
+    this.timerId = 0;
   }
-
+  countDown = () => {
+    const elapsed = this.state.duration - 1;
+    this.setState({duration: elapsed});
+  }
   onStartStop = () => {
     this.setState({isRunning: !this.state.isRunning});
+    if (!this.state.isRunning && this.state.duration > 0) {
+      this.timerId = setInterval(this.countDown, 1000);
+    }
+    if (this.state.isRunning || this.state.duration === 0) {
+      this.setState({isRunning: false});
+      clearInterval(this.timerId);
+    }
   }
   onReset = () => {
     this.setState(defaultState);
+    clearInterval(this.timerId);
   }
   onSessionIncrement = () => {
     const newLength = this.state.sessionLength + 1;
     const sessionLength = newLength <= 60 ? newLength : 60;
-    this.setState({sessionLength});
+    this.setState({
+      sessionLength,
+      duration: Lib.minutesToSeconds(sessionLength)
+    });
   }
   onSessionDecrement = () => {
     const newLength = this.state.sessionLength - 1;
     const sessionLength = newLength >= 0 ? newLength : 1;
-    this.setState({sessionLength});
+    this.setState({
+      sessionLength,
+      duration: Lib.minutesToSeconds(sessionLength)
+    });
   }
   onBreakIncrement = () => {
     const newLength = this.state.breakLength + 1;
@@ -55,7 +74,7 @@ class App extends React.Component {
             </a>
           </em>
         </h1>
-        <Pomodoro duration={this.state.sessionLength}/>
+        <Pomodoro duration={this.state.duration}/>
         <MainControls
           breakLength={this.state.breakLength}
           sessionLength={this.state.sessionLength}

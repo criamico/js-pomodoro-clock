@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GenericControls from
-  './generic-controls/index.jsx';
+import GenericControls from './generic-controls/index.jsx';
 
 class MainControls extends React.PureComponent {
   constructor(props) {
